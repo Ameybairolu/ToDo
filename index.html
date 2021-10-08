@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/all.css" />
+    <script type="module" defer src="controller.js"></script>
+    <title>AMEY-zing: ToDoList</title>
+  </head>
+  <body>
+    <main>
+      <header class="main__header">
+        <h1>My TO-DO List App</h1>
+        <div class="search__area">
+          <form action="" class="filler">
+            <label class="search" for="incoming__string">
+              <input
+                type="text"
+                id="incoming__string"
+                class="search"
+                placeholder="Add a task!"
+              />
+            </label>
+            <button class="form__btn">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </form>
+        </div>
+        <!-- <div class="maybe">
+          <div class="search__area">
+            <form action="" class="filler">
+              <input
+                type="text"
+                placeholder="Hey! Add a task!"
+                class="search-input"
+                id="incoming__string"
+              />
+              <a href="#" class="search-btn">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+            </form>
+          </div>
+        </div> -->
+      </header>
+      <div class="container">
+        <div class="table">
+          <div class="writing__area"></div>
+        </div>
+        <div class="extra__options">
+          <div>
+            <button class="form__btn button-58 btn fifth" id="incomplete">
+              Incomplete
+            </button>
+          </div>
+          <div>
+            <button class="form__btn btn fifth" id="moveToCompleted">
+              Move to Completed
+            </button>
+          </div>
+          <div>
+            <button class="form__btn btn fifth" id="reset">Reset</button>
+          </div>
+          <div>
+            <button class="form__btn btn fifth" id="completed">
+              Completed
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="confirm hide__confirm">
+      <div class="outer__box">
+        <div class="blah">
+          <p>Are you sure, you want to delete the selected item?</p>
+        </div>
+        <div class="extra__options">
+          <div>
+            <button class="form__btn btn fifth" data-decision="yes">Yes</button>
+          </div>
+          <div>
+            <button class="form__btn btn fifth" data-decision="no">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="confirm__changes hide__confirm"></div>
+    <!-- <script src="controller.js"></script> -->
+  </body>
+</html>

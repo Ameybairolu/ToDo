@@ -1,0 +1,300 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  font-family: "Montserrat", sans-serif;
+}
+
+input,
+button {
+  border: none;
+}
+
+/* All HEADER Related */
+
+.main__header {
+  background-color: #03045e;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main__header h1 {
+  color: white;
+  position: absolute;
+  top: 1%;
+}
+
+.search__area {
+  position: absolute;
+  top: 11%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 20%; */
+}
+
+.search__area input {
+  height: 30px;
+  width: 200px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+.search__area button {
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  height: 35px;
+}
+
+/* The container where we display the tasks */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  align-items: center;
+  width: 100%;
+  background-color: #03045e;
+  height: 80vh;
+}
+
+.table {
+  overflow: auto;
+  width: 70%;
+  height: 75%;
+  border-radius: 19px;
+  background-color: #0077b6;
+  animation: fading 2s;
+}
+
+.writing__area {
+  animation: fading 2s;
+}
+
+.movements__row {
+  height: 50px;
+  background-color: #023e8a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1%;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.movements__row div {
+  display: inline-block;
+}
+
+.movements__text {
+  color: #ece4db;
+  text-align: center;
+}
+
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+  background-color: rgb(184, 169, 169);
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.mark__complete {
+  background-color: rgba(42, 157, 143, 0.5) !important;
+}
+
+.mark__complete .movements__text {
+  text-decoration: line-through;
+}
+
+/* Designing for the area where we have tabs/options to play with Data */
+.extra__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 50px;
+  background-color: #03045e;
+}
+
+.extra__options div {
+  /* border-top: 2px solid black; */
+  /* border-spacing: ; */
+  width: 25%;
+  height: 100%;
+}
+
+.extra__options button {
+  height: 100%;
+  width: 100%;
+}
+
+/* When trying to delete a task, this pops up */
+.confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* display: none; */
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+.confirm__changes {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* display: none; */
+  width: 100vw;
+  height: 100vh;
+}
+
+.hide__confirm {
+  display: none;
+}
+
+.outer__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 4px solid black;
+  background-color: blueviolet;
+  text-align: center;
+  border-radius: 13px;
+  width: 70vw;
+  height: 70vh;
+}
+
+.blah {
+  border-radius: 13px;
+}
+
+.outer__box div:nth-of-type(1) {
+  height: inherit;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.outer__box .extra__options {
+  width: 100%;
+  background-color: black;
+}
+
+.outer__box .extra__options div {
+  width: 100%;
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .extra__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .extra__options div {
+    /* border-top: 2px solid black; */
+    /* border-spacing: ; */
+    width: 100%;
+    height: 30px;
+  }
+
+  .blah {
+    border-radius: inherit;
+  }
+
+  .outer__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 4px solid black;
+    text-align: center;
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .outer__box .extra__options div {
+    height: 40px;
+  }
+}
+
+/* All buttons styling and animation */
+
+.button-58 {
+  content: "";
+  /* position: absolute; */
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  background: #f15bb5 !important;
+  color: #fff !important;
+}
+
+.btn {
+  box-sizing: border-box;
+  background-color: #0077b6;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+.fifth {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+}
+.fifth:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #f15bb5;
+  z-index: -1;
+  transition: width 150ms ease-in-out;
+}
+.fifth:hover {
+  color: #fff;
+}
+.fifth:hover:after {
+  width: 110%;
+}
