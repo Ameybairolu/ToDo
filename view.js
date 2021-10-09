@@ -6,6 +6,8 @@ class View {
     _parentEl = document.querySelector('.writing__area');
     _editBox = document.querySelector('.confirm__changes');
     _currentlyInComplete = false;
+
+    // NOTE: Helps get HTML for each row
     _getHTML(movement) {
         console.log();
         const html = `
@@ -20,12 +22,13 @@ class View {
         this._parentEl.insertAdjacentHTML('beforeend', html);
     }
 
+    // NOTE: Updates the number of incomplete tasks
     _updateIncompleteTab(displayObject) {
         document.querySelector('#incomplete').innerHTML = `INCOMPLETE (${displayObject.length})`
     }
 
 
-
+    // NOTE: This function is called from the controller which passes the object to be displayed and a boolean that tells it which tab is the current one
     updateRows(displayObject, bool) {
         this._currentlyInComplete = !bool;
         this._parentEl.innerHTML = '';
@@ -37,7 +40,7 @@ class View {
         extraOptions.updateExtraOptions(this._currentlyInComplete);
     }
 
-
+    // NOTE: The _decideClickOrDoubleClick function helps decide whether the click was single click or double click
     _decideClickOrDoubleClick(handler, e) {
         this._clicks++;
         if (this._clicks === 1) {
@@ -51,7 +54,7 @@ class View {
             this._clicks = 0;
         }
     }
-
+    // NOTE: The addHandlerStrikeThrough function adds single  click event listener to each row/task
     addHandlerStrikeThrough(handler) {
         this._parentEl.addEventListener('click', this._decideClickOrDoubleClick.bind(this, handler));
     }

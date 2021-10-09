@@ -5,7 +5,14 @@ import extraOptionsView from './extraOptionsView.js';
 import deleteRow from './deleteRow.js';
 import editElement from './editElement.js';
 
+/**
+ * This file is named controller because this is majorly responsible for the flow of data from model.js and all the other .js files
+ */
+
+
+// NOTE: controlSearchResults calls getInputString function in searchView which returns the entered string in the search box and then the result is stored in model's allElements
 const controlSearchResults = function () {
+
     const data = searchView.getInputString();
     if (!data[0]) {
         alert('Please enter a task!');
@@ -20,6 +27,8 @@ const controlSearchResults = function () {
 
 }
 
+// NOTE: selectSwitch is responsible for styling the task/row during single click event
+
 const selectSwitch = function (e) {
     if (!model.allElements.currentScreenIncomplete) return;
     const clicked = e.target.closest('.movements__row');
@@ -29,9 +38,9 @@ const selectSwitch = function (e) {
     view.updateRows(model.allElements.incomplete, model.allElements.currentScreenIncomplete);
     // e.stopPropagation();
 }
-// console.log(x);
-// console.log(model.allElements.incomplete);
 
+
+// NOTE: controlViewThroughExtraOptions helps display the data when switching between the tabs.
 const controlViewThroughExtraOptions = function (e) {
     const clicked = e.target.closest('.form__btn');
     if (!clicked) return;
@@ -52,13 +61,16 @@ const controlViewThroughExtraOptions = function (e) {
     if (clicked.id === "reset") {
         reset();
     }
-    // console.log(clicked);
-    // if(clicked.classList.contains)
 }
+
+// NOTE: controlDeleteRow is responsible for initiating data deletion
 
 const controlDeleteRow = function (element) {
     deleteRow.displayDeleteConfirmationBox(element);
 }
+
+
+// NOTE: deleteRowFinal is a function that finally deletes data based on the decision made by the user when "are you sure" window appears
 
 const deleteRowFinal = function (decision, element) {
     if (decision === 'yes') {
@@ -67,9 +79,14 @@ const deleteRowFinal = function (decision, element) {
     }
 }
 
+
+// NOTE: controlEditElement function is only responsible to allow editing of a row when the row belongs to the incomplete tab
+
 const controlEditElement = function () {
     return model.allElements.currentScreenIncomplete;
 }
+
+// NOTE: The below logic is only needed to store data in the local storage of the browser and retrieve when we reopen the browser
 
 function _setLocalStorage() {
     window.addEventListener('beforeunload', () => localStorage.setItem('allElements', JSON.stringify(model.allElements)));
@@ -81,7 +98,7 @@ async function _getLocalStorage() {
     model.updateAllElementsBeforeStart(data);
     view.updateRows(model.allElements.incomplete, model.allElements.currentScreenIncomplete);
 }
-
+// NOTE: reset() is used when we want to delete entire data in incomplete/completed arrays in model's allElements
 function reset() {
     if (model.allElements.currentScreenIncomplete) {
         model.allElements.incomplete = []
@@ -93,7 +110,7 @@ function reset() {
 
 }
 
-
+// NOTE: the below function is only needed for initializing all functions and eventlisteners
 
 const init = function () {
     _getLocalStorage();
