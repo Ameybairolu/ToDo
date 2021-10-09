@@ -11,6 +11,10 @@ const controlSearchResults = function () {
         alert('Please enter a task!');
         return;
     }
+    if (model.allElements.incomplete.some(element => element.data === data[0])) {
+        alert('The task is already present!');
+        return;
+    }
     model.enterSearchedValue(data);
     view.updateRows(model.allElements.incomplete, model.allElements.currentScreenIncomplete);
 

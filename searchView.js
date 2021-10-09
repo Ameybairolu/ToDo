@@ -6,16 +6,15 @@ class SearchView {
     getInputString() {
         const input = this._parentElement.querySelector('#incoming__string').value;
         this._clearInput();
-        if (this._parentElement.dataset.manipulate) {
-            this._editBox.classList.toggle('hide__confirm');
+        const change = this._parentElement.dataset.manipulate;
+        this._editBox.classList.add('hide__confirm');
+        this._parentElement.dataset.manipulate = '';
+        this._parentElement.removeAttribute('style');
+        this._parentElement.removeAttribute('data-manipulate');
+        if (change) {
             document.querySelector('.main__header').append(this._parentElement);
-            const change = this._parentElement.dataset.manipulate;
-            this._parentElement.dataset.manipulate = '';
-            this._parentElement = document.querySelector('.search__area');
             return [input, change];
         }
-
-        this._clearInput();
         return [input, null];
 
     }

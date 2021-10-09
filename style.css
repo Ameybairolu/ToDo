@@ -22,13 +22,13 @@ button {
 
 .main__header h1 {
   color: white;
-  position: absolute;
-  top: 1%;
+  /* position: absolute; */
+  /* top: 1%; */
 }
 
 .search__area {
-  position: absolute;
-  top: 11%;
+  /* position: absolute; */
+  /* top: 11%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,6 +156,7 @@ button {
   top: 0;
   background-color: rgba(0, 0, 0, 0.9);
   /* display: none; */
+  z-index: 2;
   width: 100vw;
   height: 100vh;
 }

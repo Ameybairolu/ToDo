@@ -1,22 +1,23 @@
 class EditElement {
     _parentEl = document.querySelector('.writing__area');
     _editBox = document.querySelector('.confirm__changes');
+    _searchArea = document.querySelector('.search__area');
 
     _enableEditBox(handler, e) {
 
         if (!handler()) return;
         this._editBox.innerHTML = '';
 
-        const searchArea = document.querySelector('.search__area');
-        const searchTop = searchArea.getBoundingClientRect().top;
-        const searchHeight = searchArea.getBoundingClientRect().height;
-        const searchLeft = searchArea.getBoundingClientRect().left;
+        // _searchArea = document.querySelector('.search__area');
+        const searchTop = this._searchArea.getBoundingClientRect().top;
+        const searchHeight = this._searchArea.getBoundingClientRect().height;
+        const searchLeft = this._searchArea.getBoundingClientRect().left;
         // console.log(typeof searchArea.outerHTML);
-        this._editBox.append(searchArea);
-        this._editBox.querySelector('.search__area').style.position = 'fixed';
-        this._editBox.querySelector('.search__area').style.height = `${searchHeight}px`;
-        this._editBox.querySelector('.search__area').style.top = `${searchTop}px`;
-        this._editBox.querySelector('.search__area').style.left = `${searchLeft}px`;
+        this._editBox.append(this._searchArea);
+        this._searchArea.style.position = 'fixed';
+        this._searchArea.style.height = `${searchHeight}px`;
+        this._searchArea.style.top = `${searchTop}px`;
+        this._searchArea.style.left = `${searchLeft}px`;
 
 
         const clicked = e.target.closest('.movements__row');
@@ -31,7 +32,7 @@ class EditElement {
         target.style.width = `${widthVal}px`;
         target.style.top = `${topVal}px`;
 
-        this._editBox.querySelector('.search__area').dataset.manipulate = `${target.querySelector('.movements__text').innerHTML}`;
+        this._searchArea.dataset.manipulate = `${target.querySelector('.movements__text').innerHTML}`;
     }
 
     addHandlerDoubleClickTask(handler) {
@@ -40,7 +41,9 @@ class EditElement {
 
     _closeTheEditWindowHelper(e) {
         if (e.target.classList.contains('confirm__changes')) {
-            document.querySelector('.main__header').append(document.querySelector('.search__area'));
+            document.querySelector('.main__header').append(this._searchArea);
+            this._searchArea.removeAttribute('style');
+            this._searchArea.removeAttribute('data-manipulate');
             this._editBox.classList.toggle('hide__confirm');
         }
 

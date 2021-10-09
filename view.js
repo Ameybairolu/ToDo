@@ -6,7 +6,7 @@ class View {
     _parentEl = document.querySelector('.writing__area');
     _editBox = document.querySelector('.confirm__changes');
     _currentlyInComplete = false;
-    getHTML(movement) {
+    _getHTML(movement) {
         console.log();
         const html = `
                     <div class="movements__row ${(movement.selected && !this._currentlyInComplete) ? 'mark__complete' : ''}">
@@ -20,13 +20,20 @@ class View {
         this._parentEl.insertAdjacentHTML('beforeend', html);
     }
 
+    _updateIncompleteTab(displayObject) {
+        document.querySelector('#incomplete').innerHTML = `INCOMPLETE (${displayObject.length})`
+    }
+
 
 
     updateRows(displayObject, bool) {
         this._currentlyInComplete = !bool;
         this._parentEl.innerHTML = '';
-        displayObject.forEach(this.getHTML.bind(this));
+        displayObject.forEach(this._getHTML.bind(this));
         // changeColor();
+        if (!this._currentlyInComplete) {
+            this._updateIncompleteTab(displayObject);
+        }
         extraOptions.updateExtraOptions(this._currentlyInComplete);
     }
 

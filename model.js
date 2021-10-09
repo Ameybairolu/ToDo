@@ -1,10 +1,23 @@
 export let allElements = {
     currentScreenIncomplete: true,
 
-    incomplete: [
+    incomplete: [{
+        data: 'Dance',
+        selected: false
+    },
+    {
+        data: 'Kill',
+        selected: false
+    }
     ],
-    completed: [
-    ]
+    completed: [{
+        data: 'Be awesome',
+        selected: true
+    },
+    {
+        data: 'Study',
+        selected: true
+    }]
 }
 
 export const enterSearchedValue = function (data) {
